@@ -74,13 +74,13 @@ php的错误处理，异常处理
  
  	}
      
-  	  1. 如果try中代码没有问题，则将try中代码执行完后就到catch后执行
-  	  2. 如果try中代码有异常发生，则抛出一个异常对象(使用throw)，抛出给了catch中的参数, 
-           则在try中代码就不会再继续执行下去，直接跳转到catch中去执行， catch中执行完成，
-           再继续向下执行
+  	    1.如果try中代码没有问题，则将try中代码执行完后就到catch后执行
+  	    2.如果try中代码有异常发生，则抛出一个异常对象(使用throw)，抛出给了catch中的参数, 
+              则在try中代码就不会再继续执行下去，直接跳转到catch中去执行， catch中执行完成，
+              再继续向下执行
 
 	注意：在catch中提示发生了什么异常，这不是主要我们要做事，需要在catch中解决这个异常， 如果解决不了，
-           则输出给用户
+             则输出给用户
  
  	二、自己定义一个异常类
  
@@ -98,20 +98,21 @@ php的错误处理，异常处理
 
  Exception异常父类  提示消息  例子
  
-           try{
-               echo "1111111<br>";
-                $file=@fopen("tmp.txt", "r");
-                if(!$file){
-                     throw new Exception("没有这个文件打开失败");
-                }
+		   try{
+		       echo "1111111<br>";
+			$file=@fopen("tmp.txt", "r");
+			if(!$file){
+			     throw new Exception("没有这个文件打开失败");
+			}
 
-               }catch(Exception $e){   $e =new Exception();
-                    echo $e->getMessage()."<br/>";
-                     echo "22222222<br>";
-               }
+		       }catch(Exception $e){   $e =new Exception();
+		             //异常提示
+			     echo $e->getMessage()."<br/>";
+			     echo "22222222<br>";
+		       }
 
-               echo "33333333";
- 
+		       echo "33333333";
+
 
 
 自己定义异常子类的例子
